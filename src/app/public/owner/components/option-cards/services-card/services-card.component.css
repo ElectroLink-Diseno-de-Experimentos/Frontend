@@ -1,0 +1,81 @@
+﻿.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 12px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-header {
+  background-color:#043873;
+  padding: 16px;
+  border-bottom: 2px solid #bbdefb;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.card-title {
+  font-size: 1.5em;
+  font-weight: 600;
+  color: #00796b;
+}
+
+mat-card-title {
+  color: white;
+}
+
+.card-content {
+  padding: 16px;
+}
+
+.card-body {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.card-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: #e0f2f1;
+}
+
+.logo-icon {
+  font-size: 40px;
+  color: #00796b;
+}
+
+.card-details {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1em;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+.status mat-icon {
+  font-size: 20px;
+  color: #00796b;
+}
+
+.card-details button {
+  margin-top: 12px;
+  width: 100%;
+}
+
+
