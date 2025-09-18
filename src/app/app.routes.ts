@@ -1,3 +1,4 @@
+// src/app/app.routes.ts
 import { Routes } from '@angular/router';
 
 // Páginas públicas
@@ -6,7 +7,7 @@ import { SignUpComponent } from './iam/pages/sign-up/sign-up.component';
 
 // Dashboard general
 import { HomeownerDashboardComponent } from './dashboard/pages/homeowner-dashboard/homeowner-dashboard.component';
-import { WelcomeComponent } from './dashboard/pages/welcome-dashboard/welcome-dashboard.component'; // importa el nuevo componente
+import { WelcomeComponent } from './dashboard/pages/welcome-dashboard/welcome-dashboard.component';
 
 // Gestión de componentes e inventario
 import { TypeManagementPageComponent } from './assets/pages/component-type-page/component-type-page.component';
@@ -23,31 +24,22 @@ import { ServicePage } from './service-design-and-planning/pages/service-page/se
 
 import { ServiceMonitoringPageComponent } from './monitoring/pages/service-monitoring-page.component';
 
-// Dashboard de proveedor (opcional, si se usa)
-import { ProviderDashboardComponent } from './public/provider/pages/provider-dashboard/provider-dashboard.component';
+// Dashboard de proveedor
+import { ProviderDashboardComponent} from './public/provider/pages/provider-dashboard/provider-dashboard.component';
 
 export const routes: Routes = [
-  // Redirección inicial al componente Welcome (Página de bienvenida)
   { path: '', component: WelcomeComponent },
-
-  // Rutas para autenticación
   { path: 'sign-in', component: SignInComponent },
   { path: 'sign-up', component: SignUpComponent },
-
-  // Rutas de dashboard central (para Homeowner)
   { path: 'dashboard/homeowner', component: HomeownerDashboardComponent },
-
-  // Rutas de funcionalidades técnicas
+  { path: 'dashboard/technician', component: ProviderDashboardComponent },
   { path: 'component-type', component: TypeManagementPageComponent },
   { path: 'component-management', component: ComponentPageComponent },
   { path: 'technician-inventory', component: TechnicianInventoryPageComponent },
-  {path: 'requests', component: RequestPage},
+  { path: 'requests', component: RequestPage },
   { path: 'schedules', component: SchedulePage },
-  {path: 'services', component: ServicePage},
-  // Funcionalidades del propietario (Homeowner)
+  { path: 'services', component: ServicePage },
   { path: 'property-management', component: PropertyManagementPageComponent },
-
-  {path: 'service-monitoring', component: ServiceMonitoringPageComponent},
-  // Redirección por defecto
-  { path: '**', redirectTo: '', pathMatch: 'full' }, // Usamos la ruta principal cuando no haya coincidencia
+  { path: 'service-monitoring', component: ServiceMonitoringPageComponent },
+  { path: '**', redirectTo: '', pathMatch: 'full' },
 ];

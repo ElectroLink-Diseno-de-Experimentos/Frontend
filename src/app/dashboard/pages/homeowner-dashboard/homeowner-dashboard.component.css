@@ -1,51 +1,140 @@
 .dashboard-container {
-  position: relative;
-  padding: 2rem;
-  background-color: #f5f9fc;
+  padding: 30px;
+  background-color: #e3f2fd;
   min-height: 100vh;
+  font-family: 'Roboto', sans-serif;
 }
 
-.switch-button-container {
-  position: absolute;
-  top: 1.5rem;
-  right: 2rem;
+.dashboard-header {
+  /* Nuevo estilo para el encabezado */
+  background-color: #043873; /* Fondo azul oscuro */
+  padding: 20px 30px; /* Padding para el espacio interior */
+  margin-bottom: 40px;
+  color: #ffffff; /* Texto blanco */
+  text-align: left;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.dashboard-content {
-  max-width: 800px;
-  margin: 0 auto;
-  margin-top: 6rem;
-  text-align: center;
-  background-color: #fff;
-  padding: 2rem 3rem;
-  border-radius: 16px;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
+.dashboard-header h1 {
+  font-size: 2.8em;
+  font-weight: 700;
+  margin: 0;
+  color: #ffffff; /* Título blanco */
 }
 
-.welcome-title {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
+.dashboard-header p {
+  font-size: 1.2em;
+  color: #bbdefb; /* Un tono de azul más claro para el subtítulo */
+  margin-top: 10px;
 }
 
 .highlight {
-  color: #007bff;
-  font-weight: bold;
+  color: #ffffff; /* Asegura que el nombre de usuario sea blanco también */
+  font-weight: 700; /* Puedes mantener el negrita si quieres */
 }
 
-.welcome-subtitle {
-  font-size: 1.1rem;
-  color: #555;
-  margin-bottom: 2rem;
+.switch-button-container {
+  text-align: center;
+  margin-bottom: 30px;
 }
 
-.nav-buttons {
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 25px;
+  align-items: start;
+}
+
+:host ::ng-deep .mat-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  padding: 0;
+  overflow: hidden;
+}
+
+:host ::ng-deep .mat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+:host ::ng-deep .mat-card-header {
+  background-color: #e3f2fd;
+  padding: 20px;
+  border-bottom: 2px solid #bbdefb;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+:host ::ng-deep .mat-card-title {
+  font-size: 1.4em;
+  font-weight: 600;
+  color: #3f51b5;
+}
+
+:host ::ng-deep .mat-card-content {
+  flex-grow: 1;
+  padding: 20px;
+}
+
+:host ::ng-deep .mat-icon.logo-icon {
+  font-size: 48px;
+  width: 48px;
+  height: 48px;
+  color: #0d47a1;
+  margin-right: 15px;
+}
+
+:host ::ng-deep .card-body {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+:host ::ng-deep .card-details p {
+  font-size: 1em;
+  color: #546e7a;
+  margin: 5px 0;
+  display: flex;
   align-items: center;
 }
 
-.nav-button {
-  width: 220px;
-  font-weight: 600;
+:host ::ng-deep .card-details p mat-icon {
+  margin-right: 8px;
+  font-size: 20px;
+}
+
+:host ::ng-deep .mat-raised-button {
+  width: 100%;
+  margin-top: 15px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: 900px) {
+  .dashboard-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .dashboard-container {
+    padding: 20px;
+  }
+  .dashboard-header h1 {
+    font-size: 2em;
+  }
+  .dashboard-header p {
+    font-size: 1em;
+  }
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
 }
