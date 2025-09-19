@@ -1,37 +1,34 @@
 .card {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border-radius: 12px;
+  border-radius: 16px; /* Bordes más redondeados para un look suave */
   background-color: #ffffff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08); /* Sombra más sutil y moderna */
   padding: 0;
   overflow: hidden;
 }
 
 .card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px); /* Movimiento de hover más sutil */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Sombra más elegante al pasar el cursor */
 }
 
+/* Encabezado minimalista */
 .card-header {
-  background-color:#043873;
-  padding: 16px;
-  border-bottom: 2px solid #bbdefb;
-  border-top-left-radius: 12px;
-  border-top-right-radius: 12px;
+  background-color: #f0f4f8; /* Color gris claro, menos agresivo que el azul oscuro [cite: 3]*/
+  padding: 24px; /* Más espacio */
+  border-bottom: none; /* Elimina la línea divisoria */
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
 }
 
 mat-card-title {
-  color: white;
-}
-
-.card-title {
-  font-size: 1.5em;
-  font-weight: 600;
-  color: #1a237e;
+  color: #333; /* Texto en gris oscuro para mayor contraste */
+  font-weight: 700;
+  font-size: 1.4em;
 }
 
 .card-content {
-  padding: 16px;
+  padding: 24px; /* Más espacio para que el contenido respire */
 }
 
 .card-body {
@@ -44,22 +41,15 @@ mat-card-title {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 64px;
-  height: 64px;
+  width: 72px; /* Aumenta el tamaño del ícono */
+  height: 72px;
   border-radius: 50%;
-  background-color: #e3f2fd;
-}
-
-.card-logo img {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  object-fit: cover;
+  background-color: #e3f2fd; /* Fondo de ícono más claro */
 }
 
 .logo-icon {
   font-size: 40px;
-  color: #0d47a1;
+  color: #0d47a1; /* Mantén el azul como color de acento */
 }
 
 .card-details {
@@ -68,6 +58,7 @@ mat-card-title {
   flex-grow: 1;
 }
 
+/* Estilos para el texto de estado */
 .status {
   display: flex;
   align-items: center;
@@ -82,7 +73,10 @@ mat-card-title {
   color: #0d47a1;
 }
 
+/* Botón de acción */
 .card-details button {
-  margin-top: 12px;
+  margin-top: 16px; /* Más espacio por encima */
   width: 100%;
+  font-weight: 600;
+  border-radius: 8px; /* Bordes redondeados */
 }
