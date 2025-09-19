@@ -11,8 +11,9 @@ import { RatingFormComponent } from '../components/rating-form.component';
 import { DatePipe, NgForOf, NgIf } from '@angular/common';
 import { MatCard, MatCardContent, MatCardTitle } from '@angular/material/card';
 import { ReportFormComponent } from '../components/report-form.component';
-import {MatDivider} from '@angular/material/divider';
-import {ServiceStatus} from '../model/service-status';
+import { MatDivider } from '@angular/material/divider';
+import { ServiceStatus } from '../model/service-status';
+import { MatButton } from '@angular/material/button';
 
 @Component({
   selector: 'app-service-monitoring-page',
@@ -27,12 +28,12 @@ import {ServiceStatus} from '../model/service-status';
     NgIf,
     ReportFormComponent,
     MatDivider,
+    MatButton,
   ],
   styleUrls: ['./service-monitoring-page.component.css']
 })
 export class ServiceMonitoringPageComponent implements OnInit {
   serviceOperations: ServiceOperation[] = [];
-
   reportsByRequest: Record<string, Report[]> = {};
   reportPhotos: { [reportId: string]: string } = {};
   ratingsByRequest: Record<string, Rating | null> = {};
@@ -107,14 +108,12 @@ export class ServiceMonitoringPageComponent implements OnInit {
 
   updateStatus(operation: ServiceOperation): void {
     const nextStatus: string = this.getNextStatus(operation.currentStatus);
-
     const confirmed: boolean = confirm(`¿Deseas cambiar el estado de "${operation.currentStatus}" a "${nextStatus}"?`);
     if (!confirmed) return;
-
     this.serviceOperationService.updateStatus(operation.requestId, nextStatus)
       .subscribe({
         next: () => {
-          operation.currentStatus = nextStatus as ServiceStatus;;
+          operation.currentStatus = nextStatus as ServiceStatus;
           alert('Estado actualizado correctamente');
         },
         error: err => {
@@ -143,12 +142,10 @@ export class ServiceMonitoringPageComponent implements OnInit {
   onPhotoSelected(event: Event, reportId: string): void {
     const input = event.target as HTMLInputElement;
     if (!input.files || input.files.length === 0) return;
-
     const file = input.files[0];
     const reader = new FileReader();
     reader.onload = () => {
       this.reportPhotos[reportId] = reader.result as string;
-
       // Aquí puedes enviar el archivo al backend si deseas
       // this.reportPhotoService.upload(reportId, file).subscribe(...)
     };
